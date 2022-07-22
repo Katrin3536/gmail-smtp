@@ -52,7 +52,7 @@ app.post(`/sendMessage`, async (req, res) => {
     res.send('Hello!')
 })
 
-app.post(`/sendForm`, async (req, res) => {
+app.post(`/sendMessage/sendForm`, async (req, res) => {
 
     let {name, email, company, subject} = req.body.data
 
