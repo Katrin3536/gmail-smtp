@@ -52,6 +52,32 @@ app.post(`/sendMessage`, async (req, res) => {
     res.send('Hello!')
 })
 
+app.post(`/sendForm`, async (req, res) => {
+
+    let {name, email, company, subject} = req.body.data
+
+    let info = await transporter.sendMail({
+        from: "My Profile Page",
+        to: "dudko.katerina86@gmail.com",
+        subject: "HR WANTS ME",
+        html: `<b>Message from modal portfolio page</b>
+    <div>
+    name:${name}
+    </div>
+    <div>
+     email:${email}
+     </div>
+      <div>
+     company:${company}
+     </div>
+     <div>
+     message:${subject}
+     </div>`
+    });
+
+    res.send('Hello!')
+})
+
 let PORT = process.env.PORT || 3010;
 
 app.listen(PORT, () => {
